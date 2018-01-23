@@ -8,8 +8,14 @@ Introduction
 
 Used for creating:
 
-Laravel
-Vue.js + Vuex
-Chart.js
-Pusher
+<ul>
+    <li> Laravel</li>
+    <li> Vue.js + Vuex</li>
+    <li> Chart.js</li>
+    <li> Pusher</li>
+</ul>
+
+
+
+
 
