@@ -18,8 +18,8 @@
                   <v-layout row justify-center>
                     <v-dialog v-model="dialog"  style="width: 100%;" scrollable>
                      <v-card horizontal  v-for="(rezervacija, i) in nadolazece" :key="i"  @click="setDetaljnijaRezervacija(rezervacija.id)" slot="activator" style="margin-bottom: 4px"  >
-                      <v-card-row v-if="rezervacija.apartman == 1" img="/img/crveni.jpg" height="130px"></v-card-row>
-                      <v-card-column style="height: 130px">
+                      <v-card-row v-if="rezervacija.apartman == 1" img="/img/crveni.jpg" style="margin: 0"></v-card-row>
+                      <v-card-column>
                         <v-card-row height="75px" :style="[{ 'background-color': rezervacija.color } ]" style="color: white">
                           <v-card-text>
                             <strong>{{rezervacija.guest}}</strong><br>
@@ -36,7 +36,7 @@
                           </v-card-text>
                         </v-card-row>
                       </v-card-column>
-                      <v-card-row v-if="rezervacija.apartman == 2" img="/img/crni.jpg" height="130px"></v-card-row>
+                      <v-card-row v-if="rezervacija.apartman == 2" img="/img/crni.jpg" style="margin: 0"></v-card-row>
                     </v-card>
                     <v-card>
                       <v-card-row height="380px">
