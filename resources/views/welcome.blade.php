@@ -4,7 +4,8 @@
         <title>Lanuncher Website Template | Home :: W3layouts</title>
         <link href="css/firstPage.css" rel="stylesheet" type="text/css"  media="all" />
         <meta name="keywords" content="Lanuncher iphone web template, Andriod web template, Smartphone web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-        <link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>
         <!--start-wrap--->
@@ -21,7 +22,7 @@
                 </div>
                 <div class="content">
                     <div class="left-content">
-                        <h4>this website is Under Mainteance</h4>
+                        <h4>this website is Under Mainteance, You will be redirected</h4>
                         <p>.</p>
                     </div>
                     <div class="right-content">
@@ -35,4 +36,13 @@
             </div>
         <!--start-wrap--->
     </body>
+    <script>
+    $(document).ready(function(){
+        $("a[title='Hosted on free web hosting 000webhost.com. Host your own website for FREE.']").hide()
+        setTimeout(()=>{
+            window.location = "https://www.facebook.com/appPranjic/"
+        },3000)
+    })
+        
+    </script>
 </html>

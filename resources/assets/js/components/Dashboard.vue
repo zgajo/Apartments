@@ -87,6 +87,6 @@ import axios from 'axios';
 <style lang="css" scoped>
 .list__tile__title {
     font-size: 13px;
-    //color: #b8c7ce !important;
+    /*color: #b8c7ce !important;*/
   }
 </style>

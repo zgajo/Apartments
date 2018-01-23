@@ -1,5 +1,9 @@
 <template>
-  <canvas id="monthEarnings" ></canvas>
+
+    <div id="earnings_by_month">
+        <canvas id="monthEarnings" ></canvas>
+    </div>
+  
 </template>
 
 <script>
@@ -10,7 +14,11 @@ export default {
   props: ['earnings', 'pdv', 'provizija', 'profit','months'],
   watch:{
     earnings: function(value){
-      this.setLineChart()
+        
+        document.getElementById("monthEarnings").remove();
+        document.getElementById("earnings_by_month").insertAdjacentHTML('beforeend', '<canvas id="monthEarnings" ></canvas>');
+
+        this.setLineChart()
     }
   },
   methods: {
@@ -22,7 +30,7 @@ export default {
       let profit = this.profit;
       
       var ctx = document.getElementById("monthEarnings");
-      var myChart = new Chart(ctx, {
+      let myChart = new Chart(ctx, {
           type: 'line',
           data: {
               labels: months,

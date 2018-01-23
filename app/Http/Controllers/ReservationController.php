@@ -5,6 +5,7 @@ use DB;
 use App\Guests;
 use App\Reservation;
 use App\SendingMail;
+use App\Http\Controllers\PusherController;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Http\Request;
@@ -19,10 +20,10 @@ class ReservationController extends Controller
     public function index()
     {
     	$rezervacije = Reservation::select('guests.*','reservations.*')
-        ->leftJoin('guests', 'reservations.guest_id', '=', 'guests.id')
-        ->orderBy('dolazak', 'asc')
-        ->where('status', 'Aktivno')
-        ->get();
+                                    ->leftJoin('guests', 'reservations.guest_id', '=', 'guests.id')
+                                    ->orderBy('dolazak', 'asc')
+                                    ->where('status', 'Aktivno')
+                                    ->get();
 
     	return $rezervacije;
     }
@@ -66,8 +67,11 @@ class ReservationController extends Controller
             if($reservation->save()) 
             {
                 $salji = new SendingMail;
-                $salji->send('Nova', $request->dolazak, $request->odlazak,$request->cijena, 
-                $request->rez_preko, $request->gost );
+                $salji->send('Nova', $request->dolazak, $request->odlazak,$request->cijena, $request->rez_preko, $request->gost );
+
+                $controller = new PusherController;
+                $controller->sendNotification();
+
                 return "Success";
             }
             return json(['error' => 'could_not_create_reservation'], 406);
@@ -110,6 +114,10 @@ class ReservationController extends Controller
                 $salji = new SendingMail;
                 $salji->send('Nova', $request->dolazak, $request->odlazak,$request->cijena, 
                 $request->rez_preko, Guests::find($request->guest_id)->guest  );
+
+                $controller = new PusherController;
+                $controller->sendNotification();
+
                 return "Success";
             };
             return json(['error' => 'could_not_create_reservation'], 500);
@@ -126,8 +134,7 @@ class ReservationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-
+    {        
         $reservation = Reservation::find($id);
 
         $reservation->apartman = $request->apartman;
@@ -152,6 +159,9 @@ class ReservationController extends Controller
                 $request->cijena, 
                 $request->rez_preko,
                 Guests::find(Reservation::find($id)->guest_id)->guest ) : null;
+
+                $controller = new PusherController;
+                $controller->sendNotification();
         }
     }
 

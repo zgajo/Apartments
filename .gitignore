@@ -1,6 +1,8 @@
 /node_modules
+/app/SendingMail.php
 /public/hot
 /public/storage
+/config/broadcasting.php
 /storage/*.key
 /vendor
 /.idea
@@ -9,3 +11,4 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 .env
+.env.server

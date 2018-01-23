@@ -20,14 +20,17 @@ export const store = new Vuex.Store({
     },
     dodajRezervaciju(state, rezervacija){
       state.rezervacije.push(rezervacija)
+    },
+    setReservations(state, res){
+      state.rezervacije = res;
     }
   },
   actions: {
-    retriveAllReservations({state}) {   //Postavaljanje rezervacije koja se pregledava detaljno
+    retriveAllReservations({commit}) {   //Postavaljanje rezervacije koja se pregledava detaljno
 
        axios.post("/rezervacije/retrive?token=" + localStorage.getItem("token"))  // Dohvat ide na svakom postavljanju 
       .then(function(response){
-        state.rezervacije = response.data;
+        commit("setReservations", response.data);
       })
       .catch(function(response){
         console.log(response)

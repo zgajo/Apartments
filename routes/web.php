@@ -26,7 +26,7 @@ Route::get('/guests/retrive', 'GuestsController@index');
 
 Route::get('/guests/guest/{id}', 'GuestsController@show');
 
-Route::patch('/guests/update/{id}', 'GuestsController@update');
+Route::post('/guests/update/{id}', 'GuestsController@update');
 
 Route::get('/find/oldGuest/{guest}' , ['uses' =>'GuestsController@showGuests'])->middleware('checkAdminOrEditor');;
 
@@ -50,6 +50,6 @@ Route::post('/rezervacije/novaWthGuest', 'ReservationController@storeWithoutGues
 
 Route::post('/rezervacije/retrive', 'ReservationController@index');	// Dohvati sve
 
-Route::patch('/rezervacije/update/{id}', 'ReservationController@update')->middleware('checkAdminOrEditor');	// Dohvati sve
+Route::post('/rezervacije/update/{id}', 'ReservationController@update')->middleware('checkAdminOrEditor');	// Dohvati sve
 
 Route::post('/statistika/byYear/{year}', ['uses' => 'ReservationController@getRezByYear']);	// Dohvati sve

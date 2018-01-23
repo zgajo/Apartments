@@ -88,7 +88,7 @@
 			spremi(){
 				this.uspjesno = false;
 		        this.neuspjesno = false;
-				axios.patch('/guests/update/'+this.guest_id+"?token="+this.$auth.getToken(), {
+				axios.post('/guests/update/'+this.guest_id+"?token="+this.$auth.getToken(), {
 					guest: this.guest.guest,
 					zemlja: this.guest.zemlja,
 					email: this.guest.email,

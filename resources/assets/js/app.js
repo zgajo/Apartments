@@ -14,10 +14,16 @@ require('./bootstrap');
 import Pocetna from './Pocetna';
 import router from './router/router'; //Dohvat svih routa i postavljenih komponenta za svaku od njih
 import {store} from './store/store';
-import Auth from './auth/Auth'
+import Auth from './auth/Auth';
 
-Vue.use(Auth)
+Vue.use(Auth);
 
+Vue.use(require('vue-pusher'), {
+    api_key: '8d75855e8041f4e13e10',
+    options: {
+        cluster: 'eu'
+    }
+});
 
 const app = new Vue({
     el: '#app',

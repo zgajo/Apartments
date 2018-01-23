@@ -33,7 +33,9 @@
   "dependencies": {
     "babel-runtime": "^6.25.0",
     "chart.js": "^2.6.0",
+    "laravel-echo": "^1.3.3",
     "moment": "^2.18.1",
+    "pusher-js": "^4.2.2",
     "vuetify": "^0.12.2",
     "vuex": "^2.3.1"
   }

@@ -240,7 +240,7 @@ import moment from 'moment'
       spremi(){
         this.uspjesno = false;
         this.neuspjesno = false;
-        axios.patch('/rezervacije/update/'+this.reservation_id+"?token="+this.$auth.getToken(), {
+        axios.post('/rezervacije/update/'+this.reservation_id+"?token="+this.$auth.getToken(), {
             no_guests: this.reservation.no_guests,
             dolazak:this.reservation.dolazak,
             color:this.reservation.color,
@@ -254,7 +254,6 @@ import moment from 'moment'
             status: this.reservation.status,
         })
         .then(response => {
-          this.$store.dispatch('retriveAllReservations')
           this.uspjesno = true;
 
         })

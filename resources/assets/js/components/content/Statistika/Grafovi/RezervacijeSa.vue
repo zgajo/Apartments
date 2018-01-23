@@ -1,5 +1,9 @@
 <template>
-  <canvas id="rezervirano_sa" ></canvas>
+
+  <div id="numRezFrom">
+    <canvas id="rezervirano_sa" ></canvas>
+  </div>
+  
 </template>
 
 <script>
@@ -7,30 +11,29 @@ export default {
 
   name: 'RezerviranoSa',
 
-  props: ['rez_sa'],
-  data(){
-    return{
-      stranice: [],
-      straniceCount: []
-    }
-  },
+  props: ['rezSa'],
+
   watch:{
-    rez_sa: function(value){
+    rezSa: function(value){
+      
+        document.getElementById("rezervirano_sa").remove();
+        document.getElementById("numRezFrom").insertAdjacentHTML('beforeend', '<canvas id="rezervirano_sa" ></canvas>');
+
       this.setChart()
     }
   },
   methods: {
     setChart(){
-      let rez_sa = this.rez_sa;
+      let rezSa = this.rezSa;
 
       var ctx = document.getElementById("rezervirano_sa");
       var myChart = new Chart(ctx, {
-          type: 'horizontalBar',
+          type: 'bar',
           data: {
-              labels: Object.keys(rez_sa) ,
+              labels: Object.keys(rezSa) ,
               datasets: [{
                   label: 'Broj rezervacija',
-                  data: Object.values(rez_sa),
+                  data: Object.values(rezSa),
                   backgroundColor: [
                       '#ff6384',
                       '#36a2eb',

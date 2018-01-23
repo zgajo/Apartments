@@ -171,9 +171,8 @@
         return moment(date).format('DD.MM.YYYY')
       },
       brojNoci(rez){
-        var a = moment([moment(rez.dolazak).format('YYYY'), moment(rez.dolazak).format('MM'), moment(rez.dolazak).format('DD')]);
-        var b = moment([moment(rez.odlazak).format('YYYY'), moment(rez.odlazak).format('MM'), moment(rez.odlazak).format('DD')]);
-        return b.diff(a, 'days') // 1
+        return moment(rez.odlazak, 'YYYY-MM-DD').diff(moment(rez.dolazak, 'YYYY-MM-DD'), 'days');
+
       },
       azurirajKalendar(){
         let rezZaKal = this.dodajUKalendar;

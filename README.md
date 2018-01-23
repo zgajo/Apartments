@@ -9,17 +9,7 @@ Introduction
 Used for creating:
 
 Laravel
-Vue.js + vuex
+Vue.js + Vuex
 Chart.js
-
-
-Frontend
-============
-
-
-
-
-Admin Panel
-============
-
+Pusher
 

@@ -17,7 +17,16 @@
     <script src="plugins/fullcalendar/fullcalendar.min.js"></script>
     <script src="plugins/fullcalendar/locale-all.js"></script>
     <script src="dist/js/material.min.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
     
+    <script type="text/javascript" >
+
+      $( document ).ready(function() {
+          $("a[title='Hosted on free web hosting 000webhost.com. Host your own website for FREE.']").hide()
+      });
+        
+    </script>
+
+    <script type="text/javascript" src="js/app.js"></script>
+
   </body>
 </html>

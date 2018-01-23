@@ -1,5 +1,9 @@
 <template>
-  <canvas id="monthChart"></canvas>
+
+    <div id="monthResLine">
+        <canvas id="monthChart"></canvas>
+    </div>
+  
 </template>
 
 <script>
@@ -10,6 +14,10 @@ export default {
   props: ['reservationsByMonth', 'months'],
   watch:{
     reservationsByMonth: function(value){
+
+        document.getElementById("monthChart").remove();
+        document.getElementById("monthResLine").insertAdjacentHTML('beforeend', '<canvas id="monthChart" ></canvas>');
+
       this.setBarChart()
     }
   },
